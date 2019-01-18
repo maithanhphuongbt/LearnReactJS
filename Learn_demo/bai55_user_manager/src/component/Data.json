@@ -1,0 +1,32 @@
+[
+    {
+        "id":"1",
+        "name":"Tran Mạnh Tuấn",
+        "phone":"0964664646",
+        "permission":1
+    },
+    {
+        "id":"2",
+        "name":"Nguyễn Ngọc Chẩn",
+        "phone":"09646612322",
+        "permission":3
+    },
+    {
+        "id":"3",
+        "name":"Đào Thái Phong",
+        "phone":"5645784534",
+        "permission":2
+    },
+    {
+        "id":"4",
+        "name":"Nguyễn Minh Tiến",
+        "phone":"564564",
+        "permission":2
+    },
+    {
+        "id":"5",
+        "name":"Võ Hoàng Thăng",
+        "phone":"7897896",
+        "permission":3
+    }
+]
