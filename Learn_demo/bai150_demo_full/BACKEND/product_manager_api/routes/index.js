@@ -13,28 +13,39 @@ const pool = new Pool({
   port: 5432,
 })
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  pool.query('SELECT NOW()', (err, res) => {
-    console.log(err, res)
-    pool.end()
-  })
-  res.render('index', { title: 'Express' });
-});
+
 
 //api get data from postgres
 
 router.get('/getdata01', function(req, res, next) {
-  console.log('day la api lay du lieu cho react js');
-  pool.query('SELECT * FROM product_info', (err, res) => {
+
+  pool.query('SELECT * FROM product_info', (err, response) => {
     if(err) {
       console.log(err);
     }else {
-      console.log(res.rows)
+      console.log(response.rows)
+      res.send(response.rows)
     }
-    pool.end()
   })
-  res.render('index', { title: 'Express' });
+});
+
+/* add data to postgres. */
+router.get('/add', function(req, res, next) {
+  res.render('add',{})
+});
+
+/* add data to postgres. */
+router.post('/add', function(req, res, next) {
+  var product_name = req.body.product_name
+  var product_price = req.body.product_price
+  var product_image = req.body.product_image
+  pool.query("INSERT INTO product_info (product_name,product_price,image) VALUES ($1,$2,$3)",[product_name,product_price,product_image],(err,response) => {
+    if (err) {
+      res.send(err)
+    }else {
+      res.send('Insert data success' + product_name + "/" + product_price +"/"+ product_image)
+    }
+  })
 });
 
 
