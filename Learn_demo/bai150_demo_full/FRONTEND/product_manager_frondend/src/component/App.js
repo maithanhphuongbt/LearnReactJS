@@ -6,7 +6,6 @@ import Header from './Header';
 import Products from './Products';
 import AddProduct from './AddProduct';
 import { connect } from 'react-redux';
-import { stat } from 'fs';
 
 class App extends Component {
 

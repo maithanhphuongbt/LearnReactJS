@@ -34,6 +34,7 @@ router.get('/add', function(req, res, next) {
   res.render('add',{})
 });
 
+
 /* add data to postgres. */
 router.post('/add', function(req, res, next) {
   var product_name = req.body.product_name
@@ -48,5 +49,20 @@ router.post('/add', function(req, res, next) {
   })
 });
 
+/* delete data */
+/* add data to postgres. */
+router.get('/delete', function(req, res, next) {
+  res.render('delete',{})
+});
+router.post('/delete', function(req,res,next) {
+  var id = req.body.id
+  pool.query("DELETE FROM product_info WHERE id = $1",[id],(err,response) => {
+    if (err) {
+      res.send(err)
+    }else {
+      res.send('delete data success id: ' + id)
+    }
+  })
+})
 
 module.exports = router;
