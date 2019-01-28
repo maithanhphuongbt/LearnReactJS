@@ -31,4 +31,50 @@
   }
 }
 
+.btn-bottom-menu {
+  min-height: initial !important;
+  margin: 0 !important;
+  border: none !important;
+  height: 80px;
+  width: 100%;
+  background: none;
+  border: none;
+}
 
+.col-half-offset {
+  margin-left: 4.166666667%
+}
+
+.bottom-menu-container {
+  height: 70px;
+  background: white;
+}
+
+.bottom-menu-container-child {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.item-bottom-menu {
+  font-size: 30px;
+    color: black;
+}
+
+.item-bottom-menu:focus, .item-bottom-menu:hover, .item-bottom-menu:active {
+  font-size: 30px;
+  color: green;
+}
+
+.search-comment-icon{
+  right: 1px;
+  font-size: 20px;
+}
+
+.search-flash-icon {
+  font-size: 20px;
+}
+
+.explore-container {
+  margin-top: 65px !important;
+}

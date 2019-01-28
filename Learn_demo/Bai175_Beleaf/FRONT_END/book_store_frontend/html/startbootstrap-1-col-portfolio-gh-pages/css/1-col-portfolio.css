@@ -18,14 +18,37 @@ body {
   margin-bottom: 15px;
 }
 
-.btn-trend-menu{
-  width:100%;
-  background: #d4d2d2;
+.btn-bottom-menu {
+  min-height: initial !important;
+  margin: 0 !important;
+  border: none !important;
+  height: 80px;
+  width: 100%;
+  background: none;
   border: none;
 }
 
-.navbar {
-  min-height: none !important;
-  margin: 0 !important;
-  border: none !important;
+.col-half-offset {
+  margin-left: 4.166666667%
+}
+
+.bottom-menu-container {
+  height: 70px;
+  background: white;
+}
+
+.bottom-menu-container-child {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.item-bottom-menu {
+  font-size: 30px;
+    color: black;
+}
+
+.item-bottom-menu:focus, .item-bottom-menu:hover, .item-bottom-menu:active {
+  font-size: 30px;
+    color: green;
 }
