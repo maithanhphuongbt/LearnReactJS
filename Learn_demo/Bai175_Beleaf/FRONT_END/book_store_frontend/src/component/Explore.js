@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import { connect } from 'react-redux';
 
-const explore = () => axios.get('http://10.0.0.17:1337/getexplorevotes').then((res) => res.data);
 
-export default class Explore extends Component {
+class Explore extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +12,7 @@ export default class Explore extends Component {
 
     componentWillMount() {
         if(this.state.data === null) {
-            explore().then((result) => {
+            this.props.explores.then((result) => {
                 this.setState({
                     data:result
                 })
@@ -63,3 +62,11 @@ export default class Explore extends Component {
         )
     }
 }
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        explores: state.explores,
+    }
+}
+
+export default connect(mapStateToProps, null)(Explore)

@@ -1,18 +1,19 @@
+import axios from 'axios';
+import { UPDATE_STATUS_TAB } from './../config/Contant';
 
 var redux = require('redux');
-
-const noteInitialState = {
-
+const getexploreData = () => axios.get('http://10.0.0.17:1337/getexplorevotes').then((res) => res.data);
+const storeInitialState = {
+    explores: getexploreData(),
+    statusTab: 1
 }
-const allReducer = (state = noteInitialState, action) => {
+const allReducer = (state = storeInitialState, action) => {
     switch (action.type) {
-        case "ADD_DATA_SUCCESS":
-            return {...state,product:action.product,addStatus:action.addStatus}
+        case UPDATE_STATUS_TAB:
+            return {...state,statusTab:action.statusTab}
         default:
             return state
     }
 }
-var store = redux.createStore(allReducer);
-store.subscribe(function() {
-})
-export default store;
+
+export default redux.createStore(allReducer);
