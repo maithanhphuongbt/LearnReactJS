@@ -1,5 +1,6 @@
 const db = require ('../config/Database');
 const Explore = db.explores;
+const sequelize = require('sequelize');
 
 // Post a Explore
 exports.create = (req, res) => {
@@ -57,7 +58,7 @@ exports.update = (req, res) => {
     {
       where: {
         id: req.params.exploreId,
-      },
+      }
     }
   )
     .then (() => {
@@ -81,3 +82,31 @@ exports.delete = (req, res) => {
       res.status (500).send ('Fail to delete!');
     });
 };
+
+//Update num_like a Explore by id;
+exports.updateNumLike = (req, res) => {
+  var message = {
+      status: 200,
+      message: "Success"
+  }
+
+  console.log(req.body);
+  
+  
+  Explore.update (
+    {
+      num_like: sequelize.literal('num_like + 1')
+    },
+    {
+      where: {
+        id: req.body.id
+      }
+    }
+  )
+    .then (() => {
+      res.status (200).send (message);
+    })
+    .catch (err => {
+      res.status (500).send ('Error -> ' + err);
+    });
+}

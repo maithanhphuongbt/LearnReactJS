@@ -16,4 +16,7 @@ module.exports = function (app) {
 
     // Delete a Book with Id
     app.delete('/api/explore/:exploreId', Explore.delete);
+
+    //Update num_like with Id 
+    app.post('/api/explore/update', Explore.updateNumLike);
 }

@@ -9,7 +9,7 @@ module.exports = (sequelize, Sequelize) => {
 		title: Sequelize.STRING,
 		description: Sequelize.STRING,
 		content: Sequelize.STRING,
-		num_like: Sequelize.STRING,
+		num_like: Sequelize.INTEGER,
 		num_vote: Sequelize.STRING,
 		comment: Sequelize.STRING,
 		image_description: Sequelize.STRING,
