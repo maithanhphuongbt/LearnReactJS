@@ -22,7 +22,9 @@ exports.create = (req, res) => {
 
 // Fetch all Explore
 exports.findAll = (req, res) => {
-  Explore.findAll ()
+  Explore.findAll ({
+     order: sequelize.literal('id ASC')
+    })
     .then (explore => {
       // Send all Explore to Client
       res.send (explore);
