@@ -2,7 +2,7 @@ import axios from 'axios';
 import { UPDATE_STATUS_TAB } from './../config/Contant';
 
 var redux = require('redux');
-const getexploreData = () => axios.get('http://10.0.0.17:1337/getexplorevotes').then((res) => res.data);
+const getexploreData = () => axios.get('/api/explores').then((res) => res.data);
 const storeInitialState = {
     explores: getexploreData(),
     statusTab: 1

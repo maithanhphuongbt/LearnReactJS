@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import axios from 'axios';
 
+const likeAction = (id) => 
+(axios.post('/api/explore/update',{id})
+.then((response) => response.data))
 
 class Explore extends Component {
     constructor(props) {
@@ -20,6 +24,20 @@ class Explore extends Component {
         }
     }
 
+    handleLike = (id) => {
+        likeAction(id).then((response)=>{console.log("update like",response)})
+        var dataUpdate = this.state.data
+
+        this.state.data.forEach((element,index) => {
+            if(element.id === id) {
+                dataUpdate[index].num_like = parseInt(element.num_like, 10) + 1
+            }
+        });
+        this.setState({
+            data: dataUpdate
+        })
+    }
+
     bindExplore = () => {
         if(this.state.data) {
             return this.state.data.map((value,key) => {
@@ -35,7 +53,7 @@ class Explore extends Component {
                                 text-success" /> {value.num_vote}</p>
                             </div>
                             <div className="col-4">
-                            <p className="text-secondary"><span className="glyphicon
+                            <p className="text-secondary"><span onClick={(id)=>this.handleLike(value.id)} className="glyphicon
                                 glyphicon-thumbs-up" /> {value.num_like}</p>
                             </div>
                             <div className="col-4">
@@ -54,7 +72,6 @@ class Explore extends Component {
         }
     }
     render() {
-        console.log(this.state.data);
         return (
             <div>
                 {this.bindExplore()}
