@@ -23,7 +23,8 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 //Models/tables
-db.explores = require('../model/Explore.js')(sequelize, Sequelize);
+db.explores = require('../model/Explore')(sequelize, Sequelize);
+db.message = require('../model/Message')(sequelize, Sequelize);
 
 
 module.exports = db;

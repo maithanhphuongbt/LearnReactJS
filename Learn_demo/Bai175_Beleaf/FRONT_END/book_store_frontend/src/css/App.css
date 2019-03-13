@@ -58,7 +58,7 @@
 
 .item-bottom-menu {
   font-size: 25px;
-    color: black;
+  color: black;
 }
 
 .item-bottom-menu:focus, .item-bottom-menu:hover, .item-bottom-menu:active {
@@ -69,9 +69,47 @@
   color: green;
 }
 
-.search-comment-icon{
+.search-comment-icon {
   right: 1px;
   font-size: 20px;
+}
+
+.container-message {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.container-message::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container-message img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container-message img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
 }
 
 .search-flash-icon {
@@ -80,4 +118,25 @@
 
 .explore-container {
   margin-top: 65px !important;
+}
+
+.message_input_wrapper {
+  margin-bottom: 70px;
+}
+
+.message_input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.send_message {
+  margin-bottom: 70px;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #319cf8;
+  color: white;
 }
